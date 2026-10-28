@@ -12,9 +12,9 @@
 
 ## GitHub Pages 自动发布
 
-目标仓库为公开仓库 `vn-sg/webpages`。在 GitHub 仓库 Settings → Pages 中选择 Deploy from a branch，将实际发布分支的根目录 `/ (root)` 作为来源。首次启用需要仓库管理权限。
+目标仓库为公开仓库 `vn-sg/webpages`。在 GitHub 仓库 Settings → Pages 中选择 Deploy from a branch，将 `main` 分支的根目录 `/ (root)` 作为来源。首次启用需要仓库管理权限。
 
-配置后，每次向该分支推送提交，GitHub Pages 会自动更新网站；仅本地 commit 不会触发发布。根目录 `.nojekyll` 用于直接发布静态文件。发布是否成功可在仓库 Actions / Pages 中检查。
+配置后，每次向 `main` 分支推送提交，GitHub Pages 会自动更新网站；仅本地 commit 不会触发发布。根目录 `.nojekyll` 用于直接发布静态文件。发布是否成功可在仓库 Actions / Pages 中检查。
 
 预期站点路径为 `https://vn-sg.github.io/webpages/`，UBER 文章为 `/webpages/uber/`。这些是预期地址，需启用 Pages 并核验后才可视为已上线。
 
