@@ -6,9 +6,9 @@
 
 - `index.html`：研究首页与文章目录
 - `uber/index.html`：UBER 投资研究简报
-- `netlify.toml`：静态托管配置，发布目录为仓库根目录
+- `semiconductor/index.html`：四家半导体公司的机会成本、财报趋势与动态估值\n- `netlify.toml`：静态托管配置，发布目录为仓库根目录
 
-无需构建步骤或外部资源。用浏览器打开 HTML 文件即可预览。
+无需构建步骤。半导体页面通过相对路径加载季度数据，预览时用本地静态 HTTP 服务。GitHub Pages 提供收盘快照、手动估值和 TradingView 行情；部署到 Netlify 时，计算器也可通过 `/.netlify/functions/semiconductor-quotes` 获取 Yahoo Finance 最新常规时段报价。报价可能延迟，服务不可用时保留带日期的价格。
 
 ## GitHub Pages 自动发布
 

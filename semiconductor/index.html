@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="NVDA、TSM、ASML、AVGO：半导体机会成本、现金转化与反向 DCF。">
+<title>半导体机会成本｜投资研究笔记</title>
+<link rel="stylesheet" href="./style.css">
+<script type="module" src="./app.mjs"></script>
+</head>
+<body>
+<header class="mast"><div class="wrap mast-inner"><a href="../">← 投资研究笔记</a><nav aria-label="页面目录"><a href="#compare">横向比较</a><a href="#trends">财报趋势</a><a href="#pricing">市场定价</a></nav></div></header>
+<main>
+<section class="hero"><div class="wrap">
+<p class="date">研究快照 · 2026.11.12</p>
+<h1>半导体机会成本</h1>
+<p class="lede">四门好生意，四种兑现条件。</p>
+<p class="thesis"><strong>先研究 NVDA，再看 TSM。</strong> NVDA 的营业利润倍数较低，现金转化也更强。TSM 的扩产需要更多现金。ASML 的护城河最深，AVGO 的增长弹性最大，两者的价格都更依赖未来兑现。</p>
+<div class="chips"><a href="#nvda">NVDA</a><a href="#tsm">TSM</a><a href="#asml">ASML</a><a href="#avgo">AVGO</a></div>
+</div></section>
+<div class="wrap">
+<section id="compare">
+<div class="section-head"><h2>价格、增长与资本开支</h2><p>市场倍数按 11/11 美股收盘。区间来自五年现金流情景。</p></div>
+<div class="split">
+<article class="panel"><h3>市场 EV/EBIT vs. 合理区间</h3><div class="legend"><span>● 市场</span><span>▬ 模型合理区间</span></div><div id="ranges"></div></article>
+<article class="panel"><h3>每 100 元营收花多少在设备和厂房</h3><p class="muted">近12个月 CapEx／营收</p><div id="capex"></div><p class="note">TSM 约花 33 元。四家都应扣 CapEx 看 FCF，台积电尤其不能用经营现金流代替。</p></article>
+</div>
+<div id="theses" class="theses"></div>
+<details><summary>五年估值假设</summary><div class="scroll"><table><thead><tr><th>公司</th><th>EBIT 年增</th><th>税后企业 FCF／EBIT</th><th>折现率</th><th>退出 EV/EBIT</th></tr></thead><tbody id="assumptions"></tbody></table></div><p>五年税后企业现金流现值，加上第五年 EBIT × 退出倍数的折现值。区间来自增长上下限，其他参数固定。以上为研究假设。</p></details>
+</section>
+<section id="trends">
+<div class="section-head"><h2>利润什么时候变成现金？</h2><p>选一家公司，看最近 12 季的营业利润率与自由现金流率。</p></div>
+<div class="panel"><div id="tabs" class="tabs" role="group" aria-label="选择公司"></div><div class="legend trend-legend"><span>● 营业利润率</span><span>● 自由现金流率</span></div>
+<canvas id="trend" role="img" aria-label="季度营业利润率和自由现金流率折线图，详细数据在下方"></canvas>
+<p id="trend-note" class="note"></p><details><summary>查看完整季度数据</summary><div class="scroll"><table><thead><tr><th>季度</th><th>营收（同比）</th><th>EBIT率</th><th>FCF率</th></tr></thead><tbody id="series"></tbody></table></div></details></div>
+</section>
+<section id="pricing">
+<div class="section-head"><h2>当前价格需要兑现什么？</h2><p>修改价格或假设，即时反算五年现金流年增长要求。</p></div>
+<div class="panel">
+<div class="quote-head"><h3>美股行情</h3><button id="refresh" type="button">刷新报价</button></div>
+<p id="quote-status" class="muted" role="status">默认使用 2026-11-11 收盘价。可直接覆盖任一价格。</p>
+<div class="controls">
+<label>折现率 %<input id="discount" type="number" min="1" max="50" step=".5" value="10"></label>
+<label>永续增长 %<input id="terminal" type="number" min="-5" max="15" step=".5" value="3"></label>
+</div>
+<div id="calc" class="calc"></div>
+<p class="note">EV/EBIT 使用最近财报的股数、净债务和 EBIT，仅价格随报价更新。反向 DCF 用市值对股东现金流，含全额 CapEx 与股权薪酬。ASML 基准另剔除近12个月营运资金净流入。隐含值指现金流增长率，管理层展望多为营收。</p>
+<p id="model-status" class="muted" role="status"></p>
+<details id="ticker"><summary>查看 TradingView 行情</summary>
+<div class="tradingview-widget-container">
+<div class="tradingview-widget-container__widget"></div>
+<div><a href="https://www.tradingview.com/markets/stocks-usa/" rel="noopener">美股行情 · TradingView</a></div>
+<script src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+{"symbols":[{"proName":"NASDAQ:NVDA","title":"NVDA"},{"proName":"NYSE:TSM","title":"TSM"},{"proName":"NASDAQ:ASML","title":"ASML"},{"proName":"NASDAQ:AVGO","title":"AVGO"}],"colorTheme":"light","isTransparent":false,"displayMode":"adaptive","locale":"zh_CN"}
+</script></div></details>
+<details><summary>计算公式、现金流和 OEPS 口径</summary><p>设 q＝(1＋隐含增长率)／(1＋折现率)。市值／基期股东现金流＝q＋q²＋…＋q⁵＋q⁵ × (1＋永续增长率)／(折现率−永续增长率)。网页以数值法求解。</p><div class="scroll"><table><thead><tr><th>公司</th><th>报表期</th><th>OEPS（美元）</th><th>反向 DCF 基期现金／股</th><th>OEPS 口径</th></tr></thead><tbody id="methods"></tbody></table></div></details>
+</div>
+</section>
+<section class="sources"><h2>数据来源</h2><ul>
+<li>NVDA · <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Second-Quarter-Fiscal-2027/">FY27 Q2 财报</a> · <a href="https://investor.nvidia.com/files/content_files/TRANSCRIPT_-NVIDIA-Corp-NVDA-US-Q2-2027-Earnings-Call-26-August-2026-5_00-PM-ET.pdf">电话会</a></li>
+<li>TSM · <a href="https://investor.tsmc.com/english/quarterly-results/2026/q3">2026 Q3 财报、电话会</a> · <a href="https://www.cbc.gov.tw/en/np-700-2.html">台币参考汇率</a></li>
+<li>ASML · <a href="https://www.sec.gov/Archives/edgar/data/937966/000162828026065813/financial_statementsxusx.htm">2026 Q3 财报</a> · <a href="https://www.investor.asml.com/quarterly-results">季度展望</a></li>
+<li>AVGO · <a href="https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-third-quarter-fiscal-year-2026-financial">FY26 Q3 财报</a> · <a href="https://www.fool.com/earnings/call-transcripts/2026/09/09/broadcom-avgo-q3-2026-earnings-call-transcript/">电话会记录</a></li>
+<li>历史财务与收盘价 · <a href="https://stockanalysis.com/stocks/nvda/history/">NVDA</a> · <a href="https://stockanalysis.com/stocks/tsm/history/">TSM</a> · <a href="https://stockanalysis.com/stocks/asml/history/">ASML</a> · <a href="https://stockanalysis.com/stocks/avgo/history/">AVGO</a></li>
+</ul></section>
+</div>
+</main><footer class="wrap">个人研究记录 · 模型假设可调，估值不代表确定回报。</footer>
+</body></html>
