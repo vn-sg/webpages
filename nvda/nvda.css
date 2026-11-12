@@ -1,0 +1,11 @@
+.hero-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;max-width:630px;margin-top:26px}
+.hero-kpis div{border:1px solid #49685a;border-radius:12px;padding:10px 13px;min-width:0}
+.hero-kpis span{font-size:12px;color:#bfd1c6;display:block}.hero-kpis strong{font-size:clamp(20px,5vw,33px);line-height:1.35;color:#e5f6aa;font-variant-numeric:tabular-nums}
+.stack{display:flex;border-radius:8px;height:25px;overflow:hidden;margin:13px 0 10px}.stack span:nth-child(1){flex:48.710;background:#12644d}.stack span:nth-child(2){flex:40.313;background:#7db39d}.stack span:nth-child(3){flex:7.198;background:#d5ef91}
+.mix{display:grid;grid-template-columns:1fr auto;gap:4px 12px}.mix span:before{content:"";width:9px;height:9px;border-radius:50%;display:inline-block;background:#12644d;margin-right:8px}.mix span:nth-of-type(2):before{background:#7db39d}.mix span:nth-of-type(3):before{background:#a3c356}
+.moat{margin:0}.moat dt{font-weight:700;margin-top:8px}.moat dd{margin:0;color:var(--muted)}
+.outlook{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.outlook article{border-left:2px solid #b2c9b9;padding-left:10px}.outlook p{margin:4px 0;font-size:13px}.outlook b{display:block;color:var(--green)}
+.cash-bridge{margin-top:12px}.bridge-row{display:grid;grid-template-columns:115px minmax(0,1fr) 62px;align-items:center;gap:7px;margin:8px 0;font-variant-numeric:tabular-nums}.bridge-row span:last-child{text-align:right}.bridge-row .track i{border-radius:3px}.bridge-row .track i.down{background:#c77b57}.bridge-row .track i.up{background:#7ab39b}.bridge-row .track i.total{background:var(--green)}
+.result{font-size:13px}.result strong{font-size:30px;margin-right:6px;color:var(--green)}.scenario{position:relative;margin:14px 0}.scenario p{display:flex;justify-content:space-between;margin:0 0 4px}.scenario .track{height:10px}.checklist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.checklist p{margin:3px 0}
+@media(max-width:530px){.hero-kpis div{padding:8px}.hero-kpis span{font-size:11px}.bridge-row{grid-template-columns:94px minmax(0,1fr) 52px;font-size:12px}.checklist{grid-template-columns:1fr}}
+@media(max-width:340px){.outlook{grid-template-columns:1fr}}

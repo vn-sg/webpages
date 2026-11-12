@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="英伟达独立投资研究：收入结构、现金流拆解与反向估值。">
+<title>NVDA｜英伟达投资研究</title>
+<link rel="stylesheet" href="../semiconductor/style.css">
+<link rel="stylesheet" href="./nvda.css">
+<script type="module" src="./nvda.mjs"></script>
+</head>
+<body>
+<header class="mast"><div class="wrap mast-inner"><a href="../">← 投资研究笔记</a><nav aria-label="页面目录"><a href="#business">生意</a><a href="#cash">现金流</a><a href="#valuation">估值</a></nav></div></header>
+<main>
+<section class="hero"><div class="wrap">
+<p class="date">NASDAQ: NVDA · 研究更新 2026.11.12</p>
+<h1>英伟达</h1>
+<p class="lede">利润跑在前面，现金能跟上吗？</p>
+<p class="thesis"><strong>优先研究，重点验证现金转化。</strong> CUDA、网络和系统协同带来的优势支撑高利润率。即使营收继续超预期，只要回款与库存占用持续恶化，我就会下调现金流估值。</p>
+<div class="hero-kpis"><div><span>股价</span><strong id="hero-price">$173.73</strong></div><div><span>EV / EBIT</span><strong id="hero-multiple">21.1×</strong></div><div><span>市场隐含现金流年增</span><strong id="hero-growth">—</strong></div></div>
+<p class="date" id="hero-date">2026-11-11 美股收盘 · 财务基期截至 FY27 Q2</p>
+</div></section>
+<div class="wrap">
+<section id="business">
+<div class="section-head"><h2>增长靠什么支撑？</h2><p>FY27 Q2 · 962.21 亿美元营收，数据中心占约 92.5%。</p></div>
+<div class="split">
+<article class="panel"><h3>营收结构</h3><p class="muted">按市场平台披露 · 十亿美元</p>
+<div class="stack" role="img" aria-label="Hyperscale 48.710、ACIE 40.313、其他平台 7.198"><span></span><span></span><span></span></div>
+<div class="mix"><span>超大规模云厂商</span><strong>48.71</strong><span>AI 云、工业与企业（ACIE）</span><strong>40.31</strong><span>其他平台</span><strong>7.20</strong></div>
+<p class="note">超大规模云厂商与 ACIE 均属于数据中心。公司重分类了一位客户，历史同比使用重列口径。</p>
+</article>
+<article class="panel"><h3>护城河与替代条件</h3>
+<dl class="moat"><dt>CUDA 与软件库</dt><dd>迁移已有模型、工具链和性能优化会产生切换成本。</dd><dt>网络与整机</dt><dd>GPU、互联和机架协同，客户还要考虑集群交付、利用率和运维。</dd><dt>自研加速器</dt><dd>规模大、负载稳定的推理任务更容易被定制芯片替代。关注头部客户新增预算的分配。</dd></dl>
+</article>
+</div>
+</section>
+<section id="outlook">
+<div class="section-head"><h2>管理层与市场各自预计什么？</h2><p>共识取自 11/11 研究快照。金额为十亿美元。</p></div>
+<div class="panel outlook">
+<article><h3>FY27 Q3</h3><p><b>正式指引</b> 营收 108 ±2%</p><p><b>分析师共识</b> 109.0（+91%）</p></article>
+<article><h3>FY27 Q4</h3><p><b>电话会展望</b> 毛利率 71%–72%</p><p><b>分析师共识</b> 营收 124.7（+83%）</p></article>
+<article><h3>FY27 全年</h3><p><b>正式指引</b> 税率 16%–18%</p><p><b>分析师共识</b> 营收 411.9（+91%）</p></article>
+<article><h3>FY28 全年</h3><p><b>初步展望</b> 营收约 +70%，毛利率 72%–73%</p><p><b>分析师共识</b> 营收 692.1（+68%）</p></article>
+</div>
+<p class="note">FY28 共识已接近管理层的初步展望。两者相近，可能因为分析师参考了同一组供应假设。</p>
+</section>
+<section id="cash">
+<div class="section-head"><h2>为什么利润没变成现金？</h2><p>FY27 Q2 营业利润率 66.2%，FCF 率却从上季约 59.5% 降至 22.2%。</p></div>
+<article class="panel"><h3>最近 12 季 · EBIT 率与 FCF 率</h3><div class="legend"><span>● EBIT 率</span><span>● FCF 率</span></div><canvas id="trend" role="img" aria-label="最近十二季营业利润率和自由现金流率，具体数据在表中"></canvas>
+<details><summary>季度原值与口径</summary><div class="scroll"><table><thead><tr><th>季度</th><th>营收（$B）</th><th>EBIT 率</th><th>FCF 率</th></tr></thead><tbody id="series"></tbody></table></div><p class="note">趋势沿用研究笔记的统一口径，FCF＝经营现金流−现金资本开支。下方桥接使用公司披露的 FCF，另扣资本开支本金。</p></details></article>
+<article class="panel cash-bridge"><h3>FY27 Q2 · 净利润到自由现金流</h3><p class="muted">现金流量表桥接 · 十亿美元</p><div id="bridge" role="list" aria-label="净利润到自由现金流的瀑布图"></div>
+<p class="note">应收拖累 22.346，约占本季经营资产和负债净流出 30.707 的 73%。旧款回收会带来现金，新销售也会形成新的应收。下季重点看应收净占用能否下降。</p></article>
+<details><summary>展开 OEPS 估算与假设</summary><p>TTM 经营现金流 134.360 − 股权薪酬 7.241 − 估计维护开支 3.687 ＋ 实际营运资金净流出 40.745 − 三年中位数净流出 9.383 ＝ 154.794（十亿美元）。除以摊薄 24.3975 十亿股，得到 <strong>$6.34／股</strong>。维护开支取折旧摊销作为代理。原报表口径每股 EBIT 为 <strong>$8.10</strong>。</p></details>
+</section>
+<section id="valuation">
+<div class="section-head"><h2>当前价格需要兑现什么？</h2><p>把市场隐含增长和研究情景放在一起看。</p></div>
+<div class="split">
+<article class="panel"><div class="quote-head"><h3>五年反向 DCF</h3><button type="button" id="refresh">刷新报价</button></div>
+<p class="muted" id="quote-status" role="status">默认使用 11/11 收盘。可手动覆盖。</p>
+<div class="controls"><label>股价（美元）<input id="price" type="number" min="0.01" step=".01" value="173.73"></label><label>折现率 %<input id="discount" type="number" min="1" max="50" step=".5" value="10"></label><label>永续增长 %<input id="terminal" type="number" min="-5" max="15" step=".5" value="3"></label></div>
+<p class="result"><strong id="implied">—</strong> 五年隐含现金流年增</p>
+<p class="note" id="model-status" role="status">基期为每股 $4.91。以 TTM FCF 扣股权薪酬，包含全额现金资本开支，保留实际营运资金变动。</p>
+<details><summary>查看 TradingView 行情</summary><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div><a href="https://www.tradingview.com/symbols/NASDAQ-NVDA/">NVDA 行情 · TradingView</a><script src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>{"symbols":[{"proName":"NASDAQ:NVDA","title":"NVDA"}],"colorTheme":"light","displayMode":"adaptive","locale":"zh_CN"}</script></div></details>
+</article>
+<article class="panel"><h3>五年估值情景</h3><p class="muted">模型每股价值（美元）与输入股价</p><div id="scenarios"></div>
+<p class="note">悲观、基准、乐观的 EBIT 年增分别为 16%、19%、22%。固定税后企业 FCF／EBIT 60%、折现率 12%、第五年退出 20× EBIT。用企业价值减净债务换算每股价值。</p></article>
+</div>
+<details><summary>反向 DCF 与 EV/EBIT 的计算口径</summary><p>令 q＝(1＋隐含增长率)／(1＋折现率)。股价／基期股东现金流＝q＋q²＋…＋q⁵＋q⁵×(1＋永续增速)／(折现率−永续增速)。网页数值求解。EV＝股价×24.15 十亿股−23.609 十亿美元净现金，TTM EBIT 为 197.579 十亿美元。</p></details>
+</section>
+<section id="check"><div class="section-head"><h2>下一季只验证三件事</h2><p>FY27 Q3 电话会排在 11 月 17 日美东时间。</p></div><div class="checklist"><article class="panel"><h3>营收</h3><p>是否达到 108 ±2%，数据中心供货能否跟上。</p></article><article class="panel"><h3>毛利率</h3><p>对照 Q3 约 74% 的指引，检查 Q4 的降幅是否仍在预期内。</p></article><article class="panel"><h3>回款</h3><p>检查应收相对营收的变化、周转天数，以及库存继续占用了多少现金。</p></article></div></section>
+<section class="sources"><h2>来源</h2><ul>
+<li><a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Second-Quarter-Fiscal-2027/">FY27 Q2 财报、现金流桥接与 Q3 指引</a></li>
+<li><a href="https://investor.nvidia.com/files/doc_financials/2027/NVDA-2027-Q2-10Q-Final-including-exhibits.pdf">10-Q 市场平台披露</a> · <a href="https://investor.nvidia.com/files/content_files/TRANSCRIPT_-NVIDIA-Corp-NVDA-US-Q2-2027-Earnings-Call-26-August-2026-5_00-PM-ET.pdf">FY27 Q2 电话会</a> · <a href="https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Sets-Conference-Call-for-Third-Quarter-Financial-Results/default.aspx">下一季电话会安排</a></li>
+<li><a href="https://finance.yahoo.com/quote/NVDA/analysis/">分析师共识</a> · <a href="https://stockanalysis.com/stocks/nvda/history/">股价</a> · <a href="https://stockanalysis.com/stocks/nvda/financials/cash-flow-statement/">历史现金流</a></li>
+<li><a href="../semiconductor/">四家半导体机会成本对比</a></li>
+</ul></section>
+</div></main>
+<footer class="wrap">个人投资研究 · 财报实绩、管理层展望与模型假设分别标注。</footer>
+</body></html>
