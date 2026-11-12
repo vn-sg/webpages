@@ -23,11 +23,9 @@
 
 ## UBER 当前版本
 
-公开资料核验版，核验日期为 2026-10-28，财务快照为 Q2 2026。关联对话接口未返回原简报正文，因此亲测报价、地区 TAM 数字及内部人交易记录尚未复现。
+财务快照截至 2026 Q3。展示近 12 季利润率、管理层指引与营收共识、股东收益桥接及保险浮存情景。估值计算器默认采用 2026-11-09 研究记录的 $68.59，支持手动调整股价、折现率与永续增速。
 
-- [Uber Q2 2026 业绩公告](https://investor.uber.com/news-events/news/press-release-details/2026/Uber-Announces-Results-for-Second-Quarter-2026/default.aspx)
-- [SEC Exhibit 99.1](https://www.sec.gov/Archives/edgar/data/1543151/000154315126000027/uberq226earningspressrelea.htm)
-
-两者为同一份公司披露的交叉核对，不构成独立审计。详细口径与研究局限见文章。
+- [Uber 2026 Q3 10-Q](https://www.sec.gov/Archives/edgar/data/1543151/000154315126000041/uber-20260930.htm)
+- [Uber 2026 Q3 业绩与指引](https://www.sec.gov/Archives/edgar/data/1543151/000154315126000039/uberq326earningspressrelea.htm)
 
 仅供信息参考，不构成投资建议。
